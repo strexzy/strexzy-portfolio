@@ -1,10 +1,11 @@
-import { NavBar, Welcome } from "@/components";
+import { Dock, NavBar, Welcome } from "@/components";
 
 const App = () => {
   return (
     <main>
       <NavBar />
       <Welcome />
+      <Dock />
     </main>
   );
 };
