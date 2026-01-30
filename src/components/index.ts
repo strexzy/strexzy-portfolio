@@ -1,3 +1,4 @@
 export { default as Dock } from "./Dock";
 export { default as NavBar } from "./NavBar";
 export { default as Welcome } from "./Welcome";
+export { default as WindowControls } from "./WindowControls";
