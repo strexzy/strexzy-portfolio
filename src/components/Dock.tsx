@@ -4,8 +4,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import { dockApps } from "@/constants";
+import useWindowStore from "@/store/window";
+import type { WindowKey } from "@/store/window.types";
 
 const Dock = () => {
+  const {
+    actions: { openWindow, closeWindow },
+    windows,
+  } = useWindowStore();
   const dockRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -58,7 +64,17 @@ const Dock = () => {
     };
   }, []);
 
-  // const toggleApp = (app) => {};
+  const toggleApp = ({ id, canOpen }: { id: WindowKey; canOpen: boolean }) => {
+    if (!canOpen) return;
+
+    const window = windows[id];
+
+    if (window.isOpen) {
+      closeWindow(id);
+    } else {
+      openWindow(id);
+    }
+  };
 
   return (
     <section id="dock">
@@ -73,9 +89,9 @@ const Dock = () => {
               data-tooltip-content={name}
               data-tooltip-delay-show={150}
               disabled={!canOpen}
-              // onClick={() => {
-              //   toggleApp({ id, canOpen });
-              // }}
+              onClick={() => {
+                toggleApp({ id, canOpen });
+              }}
             >
               <img
                 src={`/images/${icon}`}

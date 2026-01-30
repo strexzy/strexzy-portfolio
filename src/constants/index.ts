@@ -1,3 +1,5 @@
+import type { WindowKey } from "@/store/window.types";
+
 const navLinks = [
   {
     id: 1,
@@ -35,7 +37,12 @@ const navIcons = [
   },
 ];
 
-const dockApps = [
+const dockApps: {
+  id: WindowKey;
+  name: string;
+  icon: string;
+  canOpen: boolean;
+}[] = [
   {
     id: "finder",
     name: "Portfolio", // was "Finder"
@@ -501,6 +508,7 @@ const WINDOW_CONFIG = {
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-};
+  trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+} as const;
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
