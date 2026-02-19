@@ -1,6 +1,6 @@
 import type { WindowKey } from "@/store/window.types";
 
-const navLinks = [
+const navLinks: { id: number; name: string; type: WindowKey }[] = [
   {
     id: 1,
     name: "Projects",
