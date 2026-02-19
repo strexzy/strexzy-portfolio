@@ -1,3 +1,4 @@
+import type { LocationItem } from "@/store/location.types";
 import type { WindowKey } from "@/store/window.types";
 
 const navLinks: { id: number; name: string; type: WindowKey }[] = [

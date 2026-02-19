@@ -36,7 +36,7 @@ export interface LocationState {
 
 // Действия location store
 export interface LocationActions {
-  setActiveLocation: (location: LocationKey | null) => void;
+  setActiveLocation: (location: LocationItem | null) => void;
   resetActiveLocation: () => void;
 }
 

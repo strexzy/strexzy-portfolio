@@ -1,11 +1,7 @@
 import { locations } from "@/constants";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import type {
-  LocationKey,
-  LocationItem,
-  LocationStore,
-} from "./location.types";
+import type { LocationItem, LocationStore } from "./location.types";
 
 const DEFAULT_LOCATION = locations.work;
 
@@ -17,11 +13,9 @@ const useLocationStore = create<LocationStore>()(
   immer((set) => ({
     ...defaultValues,
     actions: {
-      setActiveLocation: (location: LocationKey | null) =>
+      setActiveLocation: (location: LocationItem | null) =>
         set((state) => {
-          state.activeLocation = location
-            ? (locations[location] as unknown as LocationItem)
-            : null;
+          state.activeLocation = location;
         }),
 
       resetActiveLocation: () =>
