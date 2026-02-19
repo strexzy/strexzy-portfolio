@@ -379,7 +379,7 @@ const WORK_LOCATION = {
       ],
     },
   ],
-};
+} as const;
 
 const ABOUT_LOCATION = {
   id: 2,
@@ -432,7 +432,7 @@ const ABOUT_LOCATION = {
       ],
     },
   ],
-};
+} as const;
 
 const RESUME_LOCATION = {
   id: 3,
@@ -451,7 +451,7 @@ const RESUME_LOCATION = {
       // href: "/your/resume/path.pdf",
     },
   ],
-};
+} as const;
 
 const TRASH_LOCATION = {
   id: 4,
@@ -479,14 +479,14 @@ const TRASH_LOCATION = {
       imageUrl: "/images/trash-2.png",
     },
   ],
-};
+} as const;
 
 export const locations = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
-};
+} as const;
 
 const INITIAL_Z_INDEX = 1000;
 
